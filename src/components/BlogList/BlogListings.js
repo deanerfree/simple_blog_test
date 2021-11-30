@@ -8,9 +8,9 @@ import BlogItem from "./BlogItem"
 import BlogContext from "../../context/blogContext"
 
 const BlogListings = () => {
-	// const [filteredArray, setFilteredArray] = useState([])
+	const [filteredArray, setFilteredArray] = useState([])
 	const blogContext = useContext(BlogContext)
-	const { blogList, setBlogList, currentPage, isLoading, query } = blogContext
+	const { blogList, currentPage, isLoading, query } = blogContext
 
 	const filterData = (array, query) => {
 		console.log("Before filter", array.length)
@@ -26,14 +26,15 @@ const BlogListings = () => {
 	}
 
 	useEffect(() => {
+		setFilteredArray(blogList)
 		if (query === "") {
-			setBlogList(blogList)
+			setFilteredArray(blogList)
 		}
 		console.log("query updated")
 		let updatedData = filterData(blogList, query)
 		console.log(updatedData)
-		setBlogList(updatedData)
-	}, [query])
+		setFilteredArray(updatedData)
+	}, [query, blogList])
 
 	return (
 		<Box>
@@ -44,13 +45,15 @@ const BlogListings = () => {
 				</Box>
 			) : (
 				<Box className='ListContainer'>
-					{blogList
-						.slice((currentPage - 1) * 10, currentPage * 10)
-						.map((blog) => (
-							<BlogItem blog={blog} key={blog.id} />
-						))}
+					{filteredArray.length !== 0
+						? filteredArray
+								.slice((currentPage - 1) * 10, currentPage * 10)
+								.map((blog) => <BlogItem blog={blog} key={blog.id} />)
+						: blogList
+								.slice((currentPage - 1) * 10, currentPage * 10)
+								.map((blog) => <BlogItem blog={blog} key={blog.id} />)}
 
-					<PaginationComp data={blogList} />
+					<PaginationComp data={filteredArray} />
 				</Box>
 			)}
 		</Box>
