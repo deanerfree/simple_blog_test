@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Box, Card, CardContent } from "@mui/material"
+import { ArrowBack } from "@mui/icons-material"
 import { Spinner } from "../../svg"
 import axios from "axios"
 
@@ -90,15 +91,22 @@ const BlogPost = () => {
 			) : (
 				<Card className='BlogPost'>
 					<CardContent>
-						<h2>Blog Post {post.id}</h2>
-						<h3>By: User {post.userId}</h3>
-						<h3>Title: {post.title}</h3>
-						<br />
-						<br />
-						<p>{post.body}</p>
-						<br />
-						<br />
-						<p>This page has been viewed: {post.views}</p>
+						<div style={{ borderBottom: "solid 1px black" }}>
+							<h2>Blog Post {post.id}</h2>
+							<h3>By: User {post.userId}</h3>
+						</div>
+						<div style={{ height: "70%" }}>
+							<h3>{post.title}</h3>
+							<p>{post.body}</p>
+						</div>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "flex-end",
+								alignItems: "flex-end",
+							}}>
+							<p>This page has been viewed: {post.views}</p>
+						</div>
 					</CardContent>
 				</Card>
 			)}

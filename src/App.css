@@ -29,5 +29,15 @@ body {
 }
 
 .BlogPost {
+	display: flex;
 	width: 75%;
+	padding: 20px;
+}
+
+.PagStyling {
+	margin: 40px;
+	border-radius: 30px;
+	background-color: #fff;
+	padding: 10px;
+	box-shadow: 1px 1px 1px grey;
 }

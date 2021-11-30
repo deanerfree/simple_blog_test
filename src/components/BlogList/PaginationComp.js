@@ -13,15 +13,17 @@ const PaginationComp = ({ ...props }) => {
 		setCurrentPage(value)
 	}
 	return (
-		<Pagination
-			count={
-				data.length % 10 === 0
-					? Math.floor(data.length / 10)
-					: Math.floor(data.length / 10 + 1)
-			}
-			page={currentPage}
-			onChange={handleChange}
-		/>
+		<div className='PagStyling'>
+			<Pagination
+				count={
+					data.length % 10 === 0
+						? Math.floor(data.length / 10)
+						: Math.floor(data.length / 10 + 1)
+				}
+				page={currentPage}
+				onChange={handleChange}
+			/>
+		</div>
 	)
 }
 export default PaginationComp
