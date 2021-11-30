@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { Card, CardContent } from "@mui/material"
+import { Box, Card, CardContent } from "@mui/material"
 import { Spinner } from "../../svg"
 import axios from "axios"
 
@@ -75,26 +75,32 @@ const BlogPost = () => {
 	}, [id])
 
 	return (
-		<Card className='App'>
+		<Box
+			style={{
+				backgroundColor: "rgba(209, 234, 255, 0.616)",
+				padding: "20px",
+				height: "90vh",
+			}}>
 			{isLoading ? (
 				<CardContent className='LoadingContent'>
-					{/* <span>Loading...</span> */}
 					<Spinner />
 				</CardContent>
 			) : (
-				<CardContent>
-					<h2>Blog Post {post.id}</h2>
-					<h3>By: User {post.userId}</h3>
-					<span>Title: {post.title}</span>
-					<br />
-					<br />
-					<span>{post.body}</span>
-					<br />
-					<br />
-					<span>This page has been viewed: {post.views}</span>
-				</CardContent>
+				<Card className='BlogPost'>
+					<CardContent>
+						<h2>Blog Post {post.id}</h2>
+						<h3>By: User {post.userId}</h3>
+						<span>Title: {post.title}</span>
+						<br />
+						<br />
+						<span>{post.body}</span>
+						<br />
+						<br />
+						<span>This page has been viewed: {post.views}</span>
+					</CardContent>
+				</Card>
 			)}
-		</Card>
+		</Box>
 	)
 }
 

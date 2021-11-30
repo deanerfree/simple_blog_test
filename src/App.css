@@ -1,3 +1,6 @@
+body {
+	background-color: rgba(209, 234, 255, 0.616);
+}
 .App {
 	padding: 20px;
 }
@@ -16,6 +19,7 @@
 	align-items: center;
 	min-height: 100%;
 	padding-bottom: 30px;
+	background-color: rgba(209, 234, 255, 0.616);
 }
 
 .ListItem {

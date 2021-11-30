@@ -1,6 +1,12 @@
 import { useContext } from "react"
 import BlogContext from "../../context/blogContext"
-import { CardContent, TextField, FormControl } from "@mui/material"
+import {
+	CardContent,
+	TextField,
+	FormControl,
+	InputAdornment,
+} from "@mui/material"
+import { Search as SearchIcon } from "@mui/icons-material"
 
 const Search = () => {
 	const blogContext = useContext(BlogContext)
@@ -9,8 +15,8 @@ const Search = () => {
 	return (
 		<CardContent
 			style={{
-				margin: "20px",
-				padding: "20px",
+				backgroundColor: "#fff",
+				padding: "40px",
 				borderBottom: "solid 1px #444",
 			}}>
 			<FormControl>
@@ -19,6 +25,13 @@ const Search = () => {
 					type='text'
 					placeholder='Search Blogs'
 					onChange={(e) => setQuery(e.target.value)}
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position='start'>
+								<SearchIcon />
+							</InputAdornment>
+						),
+					}}
 				/>
 			</FormControl>
 		</CardContent>

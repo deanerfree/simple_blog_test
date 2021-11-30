@@ -32,7 +32,16 @@ const BlogListings = () => {
 							<BlogItem blog={blog} key={blog.id} />
 						))}
 
-					<PaginationComp data={blogList} />
+					<PaginationComp
+						data={blogList
+							.slice((currentPage - 1) * 10, currentPage * 10)
+							.filter((val) => {
+								if (query === "") {
+									return val
+								}
+								return val.title.toLowerCase().includes(query.toLowerCase())
+							})}
+					/>
 				</Box>
 			)}
 		</Box>
