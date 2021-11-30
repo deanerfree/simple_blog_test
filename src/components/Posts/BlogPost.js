@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { Box, Card, CardContent } from "@mui/material"
-import { ArrowBack } from "@mui/icons-material"
 import { Spinner } from "../../svg"
+import { ArrowBackIosNew as BackArrow } from "@mui/icons-material"
 import axios from "axios"
 
 const BlogPost = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [post, setPost] = useState({})
 
+	const navigate = useNavigate()
 	let { id } = useParams()
 	const getPost = async (id) => {
 		try {
@@ -90,6 +91,9 @@ const BlogPost = () => {
 				</CardContent>
 			) : (
 				<Card className='BlogPost'>
+					<div style={{ cursor: "pointer" }}>
+						<BackArrow />
+					</div>
 					<CardContent>
 						<div style={{ borderBottom: "solid 1px black" }}>
 							<h2>Blog Post {post.id}</h2>
