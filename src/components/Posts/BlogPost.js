@@ -77,7 +77,9 @@ const BlogPost = () => {
 	return (
 		<Box
 			style={{
-				backgroundColor: "rgba(209, 234, 255, 0.616)",
+				// backgroundColor: "rgba(209, 234, 255, 0.616)",
+				display: "flex",
+				justifyContent: "center",
 				padding: "20px",
 				height: "90vh",
 			}}>
@@ -90,13 +92,13 @@ const BlogPost = () => {
 					<CardContent>
 						<h2>Blog Post {post.id}</h2>
 						<h3>By: User {post.userId}</h3>
-						<span>Title: {post.title}</span>
+						<h3>Title: {post.title}</h3>
 						<br />
 						<br />
-						<span>{post.body}</span>
+						<p>{post.body}</p>
 						<br />
 						<br />
-						<span>This page has been viewed: {post.views}</span>
+						<p>This page has been viewed: {post.views}</p>
 					</CardContent>
 				</Card>
 			)}
