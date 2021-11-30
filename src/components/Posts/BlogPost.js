@@ -11,6 +11,10 @@ const BlogPost = () => {
 
 	const navigate = useNavigate()
 	let { id } = useParams()
+
+	const returnToResults = () => {
+		navigate({ pathname: "/", state: { redir: "ok" } })
+	}
 	const getPost = async (id) => {
 		try {
 			setIsLoading(true)
@@ -91,7 +95,7 @@ const BlogPost = () => {
 				</CardContent>
 			) : (
 				<Card className='BlogPost'>
-					<div style={{ cursor: "pointer" }}>
+					<div style={{ cursor: "pointer" }} onClick={returnToResults}>
 						<BackArrow />
 					</div>
 					<CardContent>
