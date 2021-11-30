@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Simple Blog project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -15,7 +15,7 @@ The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### Packages used
-Styling and Icons setup with @mui formerly material ui
+Styling, Pagenation and Icons setup with @mui formerly material ui
 Routing using React Router
 
 ### API used
