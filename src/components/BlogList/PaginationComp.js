@@ -2,9 +2,10 @@ import { Pagination } from "@mui/material"
 import { useContext } from "react"
 import BlogContext from "../../context/blogContext"
 
-const PaginationComp = () => {
+const PaginationComp = ({ ...props }) => {
+	const { data } = props
 	const blogContext = useContext(BlogContext)
-	const { blogList, currentPage, setCurrentPage } = blogContext
+	const { currentPage, setCurrentPage } = blogContext
 
 	//To change pages
 	const handleChange = (e, value) => {
@@ -14,9 +15,9 @@ const PaginationComp = () => {
 	return (
 		<Pagination
 			count={
-				blogList.length % 10 === 0
-					? blogList.length / 10
-					: blogList.length / 10 + 1
+				data.length % 10 === 0
+					? Math.floor(data.length / 10)
+					: Math.floor(data.length / 10 + 1)
 			}
 			page={currentPage}
 			onChange={handleChange}

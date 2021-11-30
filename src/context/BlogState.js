@@ -43,6 +43,7 @@ const BlogState = (props) => {
 		<BlogContext.Provider
 			value={{
 				blogList,
+				setBlogList,
 				currentPage,
 				setCurrentPage,
 				getBlogList,
