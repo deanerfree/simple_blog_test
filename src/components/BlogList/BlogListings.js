@@ -10,30 +10,22 @@ import BlogContext from "../../context/blogContext"
 const BlogListings = () => {
 	const [filteredArray, setFilteredArray] = useState([])
 	const blogContext = useContext(BlogContext)
-	const { blogList, currentPage, isLoading, query } = blogContext
-
-	const filterData = (array, query) => {
-		console.log("Before filter", array.length)
-		const filteredArray = array.filter((val) => {
-			if (query === "") {
-				return val
-			}
-			console.log(query)
-			return val.title.toLowerCase().includes(query.toLowerCase())
-		})
-		console.log("After filter", filteredArray.length)
-		return filteredArray
-	}
+	const { blogList, currentPage, filterData, isLoading, query } = blogContext
 
 	useEffect(() => {
+		//Need to prep the data for the full list
+
 		setFilteredArray(blogList)
+		//  If query is blank setFilteredArray to original
 		if (query === "") {
 			setFilteredArray(blogList)
 		}
-		console.log("query updated")
+
+		// Filter the array based on query data
 		let updatedData = filterData(blogList, query)
 		console.log(updatedData)
 		setFilteredArray(updatedData)
+		// eslint-disable-next-line
 	}, [query, blogList])
 
 	return (

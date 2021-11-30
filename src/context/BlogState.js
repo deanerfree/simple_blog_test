@@ -31,6 +31,18 @@ const BlogState = (props) => {
 		}
 	}
 
+	const filterData = (array, query) => {
+		const filteredArray = array.filter((val) => {
+			if (query === "") {
+				return val
+			}
+			console.log(query)
+			return val.title.toLowerCase().includes(query.toLowerCase())
+		})
+
+		return filteredArray
+	}
+
 	useEffect(() => {
 		getBlogList()
 		if (err === true) {
@@ -46,6 +58,7 @@ const BlogState = (props) => {
 				setBlogList,
 				currentPage,
 				setCurrentPage,
+				filterData,
 				getBlogList,
 				isLoading,
 				err,
