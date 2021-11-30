@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { Box, Card, CardContent } from "@mui/material"
 import { Spinner } from "../../svg"
+import { ArrowBackIosNew as BackArrow } from "@mui/icons-material"
 import axios from "axios"
 
 const BlogPost = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [post, setPost] = useState({})
+	const navigate = useNavigate()
 
 	let { id } = useParams()
+
+	const returnToResults = () => {
+		navigate({ pathname: "/", state: { redir: "ok" } })
+	}
 	const getPost = async (id) => {
 		try {
 			setIsLoading(true)
@@ -81,6 +87,9 @@ const BlogPost = () => {
 				padding: "20px",
 				height: "90vh",
 			}}>
+			<div style={{ cursor: "pointer" }} onClick={returnToResults}>
+				<BackArrow />
+			</div>
 			{isLoading ? (
 				<CardContent className='LoadingContent'>
 					<Spinner />
