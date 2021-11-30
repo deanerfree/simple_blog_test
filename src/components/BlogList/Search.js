@@ -24,6 +24,7 @@ const Search = () => {
 					label='Search'
 					type='text'
 					placeholder='Search Blogs'
+					variant='standard'
 					onChange={(e) => setQuery(e.target.value)}
 					InputProps={{
 						startAdornment: (
