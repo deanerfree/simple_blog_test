@@ -28,4 +28,6 @@ User page views are monitored using sessionStorage keeping track of what blog po
 Results are returned from the API viewing 10 Posts at a time.\
 Pagination allows you to switch between results.\
 Can search through results looking for key word within the title.\
-Titles redirect you to the blog post.
+Titles redirect you to the blog post.\
+Title tiles and text change color when text is hovered over.\
+Clicking the back arrow redirects user back to main page
