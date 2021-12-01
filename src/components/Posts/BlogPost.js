@@ -83,7 +83,6 @@ const BlogPost = () => {
 	return (
 		<Box
 			style={{
-				// backgroundColor: "rgba(209, 234, 255, 0.616)",
 				display: "flex",
 				justifyContent: "center",
 				padding: "20px",
@@ -95,7 +94,7 @@ const BlogPost = () => {
 				</CardContent>
 			) : (
 				<Card className='BlogPost'>
-					<div style={{ cursor: "pointer" }} onClick={returnToResults}>
+					<div className='BackButton' onClick={returnToResults}>
 						<BackArrow />
 					</div>
 					<CardContent>
@@ -103,7 +102,7 @@ const BlogPost = () => {
 							<h2>Blog Post {post.id}</h2>
 							<h3>By: User {post.userId}</h3>
 						</div>
-						<div style={{ height: "70%" }}>
+						<div style={{ height: "78%" }}>
 							<h3>{post.title}</h3>
 							<p>{post.body}</p>
 						</div>
@@ -112,6 +111,8 @@ const BlogPost = () => {
 								display: "flex",
 								justifyContent: "flex-end",
 								alignItems: "flex-end",
+								color: "grey",
+								fontSize: "10px",
 							}}>
 							<p>This page has been viewed: {post.views}</p>
 						</div>

@@ -17,7 +17,8 @@ const Search = () => {
 			style={{
 				backgroundColor: "#fff",
 				padding: "40px",
-				borderBottom: "solid 1px #444",
+				borderBottom: "solid 1px grey",
+				boxShadow: "5px 5px 5px grey",
 			}}>
 			<FormControl>
 				<TextField

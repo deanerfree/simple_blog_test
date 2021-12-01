@@ -1,5 +1,5 @@
 body {
-	background-color: rgba(209, 234, 255, 0.616);
+	background-color: rgba(236, 247, 255, 0.795);
 }
 .App {
 	padding: 20px;
@@ -23,9 +23,11 @@ body {
 }
 
 .ListItem {
+	pointer-events: none;
 	margin: 20px;
-	padding: 30px;
+	padding: 30px 30px 50px 30px;
 	width: 400px;
+	background-color: #fff;
 }
 
 .BlogPost {
@@ -40,4 +42,25 @@ body {
 	background-color: #fff;
 	padding: 10px;
 	box-shadow: 1px 1px 1px grey;
+}
+
+.BackButton {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	cursor: pointer;
+	height: 5%;
+}
+
+.title {
+	pointer-events: auto;
+	color: rgba(73, 92, 110, 0.692);
+}
+
+.ListItem:hover {
+	background-color: rgba(224, 224, 224, 0.397);
+}
+
+.title:hover {
+	color: rgba(46, 58, 70, 0.829);
 }

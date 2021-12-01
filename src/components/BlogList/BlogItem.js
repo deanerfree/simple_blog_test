@@ -7,7 +7,7 @@ const BlogItem = ({ ...props }) => {
 			<Link
 				to={{ pathname: `/post/${blog.id}` }}
 				style={{ textDecoration: "none", color: "#000" }}>
-				<h2>
+				<h2 className='title'>
 					Blog Post {blog.id}: {blog.title}
 				</h2>
 			</Link>
