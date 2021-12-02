@@ -45,7 +45,9 @@ const BlogListings = () => {
 								.slice((currentPage - 1) * 10, currentPage * 10)
 								.map((blog) => <BlogItem blog={blog} key={blog.id} />)}
 
-					<PaginationComp data={filteredArray} />
+					<PaginationComp
+						data={filteredArray.length !== 0 ? filteredArray : blogList}
+					/>
 				</Box>
 			)}
 		</Box>

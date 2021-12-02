@@ -22,13 +22,22 @@ const BlogState = (props) => {
 				// }
 			)
 			if (blogs.status === 200) {
-				setBlogList(blogs.data)
+				const modData = makeBlogValueSearchable(blogs.data)
+				setBlogList(modData)
 				setIsLoading(false)
 			}
 		} catch (error) {
 			console.error(`This is the error: ${error.message}`)
 			setErr(true)
 		}
+	}
+
+	const makeBlogValueSearchable = (data) => {
+		return data.map((item) => {
+			const concatValue = `Blog Post ${item.id}: `
+			item.title = concatValue.concat(item.title)
+			return item
+		})
 	}
 
 	const filterData = (array, query) => {
