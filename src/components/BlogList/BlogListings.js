@@ -23,7 +23,10 @@ const BlogListings = () => {
 
 		// Filter the array based on query data
 		let updatedData = filterData(blogList, query)
-		console.log(updatedData)
+
+		if (query && filteredArray.length === 0) {
+			setFilteredArray(updatedData)
+		}
 		setFilteredArray(updatedData)
 		// eslint-disable-next-line
 	}, [query, blogList])
@@ -41,12 +44,22 @@ const BlogListings = () => {
 						? filteredArray
 								.slice((currentPage - 1) * 10, currentPage * 10)
 								.map((blog) => <BlogItem blog={blog} key={blog.id} />)
+						: query
+						? filteredArray
+								.slice((currentPage - 1) * 10, currentPage * 10)
+								.map((blog) => <BlogItem blog={blog} key={blog.id} />)
 						: blogList
 								.slice((currentPage - 1) * 10, currentPage * 10)
 								.map((blog) => <BlogItem blog={blog} key={blog.id} />)}
 
 					<PaginationComp
-						data={filteredArray.length !== 0 ? filteredArray : blogList}
+						data={
+							filteredArray.length !== 0
+								? filteredArray
+								: query
+								? filteredArray
+								: blogList
+						}
 					/>
 				</Box>
 			)}

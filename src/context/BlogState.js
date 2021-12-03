@@ -45,7 +45,7 @@ const BlogState = (props) => {
 			if (query === "") {
 				return val
 			}
-			console.log(query)
+
 			return val.title.toLowerCase().includes(query.toLowerCase())
 		})
 
